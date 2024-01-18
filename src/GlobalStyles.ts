@@ -11,7 +11,7 @@ ${reset}
 a:link {
     text-decoration: none;
 }
-a:visited, a:active {
+a, a:visited, a:active {
 color: inherit
 }
 
