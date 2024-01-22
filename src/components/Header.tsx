@@ -49,9 +49,11 @@ const MainCategoryLi = styled.li`
   line-height: 60px;
   font-size: 20px;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     border-bottom: 2px solid #f3b664;
+    color: #f3b664;
   }
 
   &:hover > ul {
@@ -60,8 +62,9 @@ const MainCategoryLi = styled.li`
 `;
 
 const SubCategory = styled.ul`
+  z-index: 10;
+  background-color: #ffffff;
   display: none;
-
   position: absolute;
   top: 60px;
   width: 100%;
