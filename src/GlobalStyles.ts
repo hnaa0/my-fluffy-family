@@ -4,6 +4,19 @@ import reset from "styled-reset";
 const GlobalStyles = createGlobalStyle`
 ${reset}
 
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray-light: #c7c7c7;
+    --color-gray-normal: 8f8f8f;
+    --color-gray-dark: #4f4f4f;
+    --color-orange-light: #f3b664;
+    --color-orange-dark: #ec8f5e;
+    --color-yellow-light: #ebe363;
+    --color-yellow-normal: #f1eb90;
+    --color-green: #9fbb73;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -19,6 +32,10 @@ html {
     text-size-adjust: none;
     -moz-text-size-adjust: none;
     -webkit-text-adjust: none;
+}
+
+body {
+    color: var(--color-gray-dark);
 }
 
 input, textarea { 

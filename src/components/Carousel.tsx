@@ -118,13 +118,13 @@ const Btn = styled.button`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #f1eb90;
+  background-color: var(--color-yellow-normal);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  color: #ffffff;
+  color: var(--color-white);
 
   &:hover {
-    background-color: #ebe363;
-    color: #ffffff;
+    background-color: var(--color-yellow-light);
+    color: var(--color-white);
   }
 `;
 

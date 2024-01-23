@@ -52,8 +52,8 @@ const MainCategoryLi = styled.li`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    border-bottom: 2px solid #f3b664;
-    color: #f3b664;
+    border-bottom: 2px solid var(--color-orange-light);
+    color: var(--color-orange-light);
   }
 
   &:hover > ul {
@@ -63,7 +63,7 @@ const MainCategoryLi = styled.li`
 
 const SubCategory = styled.ul`
   z-index: 10;
-  background-color: #ffffff;
+  background-color: var(--color-white);
   display: none;
   position: absolute;
   top: 60px;
@@ -79,7 +79,7 @@ const SubCategoryLi = styled.li`
   line-height: 40px;
 
   &:hover {
-    color: #ffffff;
-    background-color: #f3b664;
+    color: var(--color-white);
+    background-color: var(--color-orange-light);
   }
 `;

@@ -62,11 +62,15 @@ const InfoCardContainer = styled.div`
   width: 300px;
   height: 400px;
   padding: 40px 20px;
-  color: #ffffff;
+  color: var(--color-white);
   letter-spacing: -0.3px;
   border-radius: 20px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background: linear-gradient(160deg, #f3b664, #ec8f5e);
+  background: linear-gradient(
+    160deg,
+    var(--color-orange-light),
+    var(--color-orange-dark)
+  );
 `;
 
 const TitleBox = styled.div`

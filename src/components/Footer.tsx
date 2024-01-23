@@ -42,9 +42,9 @@ const Foot = styled.footer`
   display: flex;
   width: 100%;
   height: 200px;
-  color: #ffffff;
+  color: var(--color-white);
   padding: 60px 60px;
-  background-color: #9fbb73;
+  background-color: var(--color-green);
   font-size: 12px;
 `;
 
