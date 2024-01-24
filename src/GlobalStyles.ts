@@ -32,6 +32,7 @@ html {
     text-size-adjust: none;
     -moz-text-size-adjust: none;
     -webkit-text-adjust: none;
+    overflow-y: scroll; // 스크롤 생겨도 밀려나지 않게
 }
 
 body {
