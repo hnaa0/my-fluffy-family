@@ -1,26 +1,47 @@
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Header() {
+  const navigate = useNavigate();
+  const handleCategory = (e) => {
+    if (e.target.textContent === "INFO") {
+      navigate("/info/centerinfo");
+    } else if (e.target.textContent === "FINDFAMILY") {
+      navigate("/findfamily/animals");
+    }
+  };
   return (
     <Nav>
       <img src="https://placehold.co/150x60" alt="" />
       <MainCategory>
         <MainCategoryLi>
-          INFO
+          <div onClick={handleCategory}>INFO</div>
           <SubCategory>
-            <SubCategoryLi>센터소개</SubCategoryLi>
-            <SubCategoryLi>FAQ</SubCategoryLi>
+            <Link to="/info/centerinfo">
+              <SubCategoryLi>센터소개</SubCategoryLi>
+            </Link>
+            <Link to="/info/faq">
+              <SubCategoryLi>FAQ</SubCategoryLi>
+            </Link>
           </SubCategory>
         </MainCategoryLi>
         <MainCategoryLi>
-          FINDFAMILY
+          <div onClick={handleCategory}>FINDFAMILY</div>
           <SubCategory>
-            <SubCategoryLi>입양동물소개</SubCategoryLi>
-            <SubCategoryLi>입양절차</SubCategoryLi>
-            <SubCategoryLi>임시보호프로그램</SubCategoryLi>
+            <Link to="/findfamily/animals">
+              <SubCategoryLi>입양동물소개</SubCategoryLi>
+            </Link>
+            <Link to="/findfamily/adoptprocess">
+              <SubCategoryLi>입양절차</SubCategoryLi>
+            </Link>
+            <Link to="/findfamily/fosterprogram">
+              <SubCategoryLi>임시보호프로그램</SubCategoryLi>
+            </Link>
           </SubCategory>
         </MainCategoryLi>
-        <MainCategoryLi>반려견놀이터</MainCategoryLi>
+        <Link to="/playground">
+          <MainCategoryLi>반려견놀이터</MainCategoryLi>
+        </Link>
       </MainCategory>
     </Nav>
   );

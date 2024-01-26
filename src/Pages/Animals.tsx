@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import AnimalCard from "../components/AnimalCard";
 
 export default function Animals() {
@@ -12,7 +13,9 @@ export default function Animals() {
           <Btn>DOG()</Btn>
         </CategoryBtns>
         <AnimalGroup>
-          <AnimalCard />
+          <Link to="/animalNO">
+            <AnimalCard />
+          </Link>
           <AnimalCard />
           <AnimalCard />
           <AnimalCard />
