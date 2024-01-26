@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 export default function Header() {
   const navigate = useNavigate();
-  const handleCategory = (e) => {
-    if (e.target.textContent === "INFO") {
+  const handleCategory = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.currentTarget.innerText === "INFO") {
       navigate("/info/centerinfo");
-    } else if (e.target.textContent === "FINDFAMILY") {
+    } else if (e.currentTarget.innerText === "FINDFAMILY") {
       navigate("/findfamily/animals");
     }
   };
