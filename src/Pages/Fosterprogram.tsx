@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Accordion from "./Accordion";
+import Accordion from "../components/Accordion";
 
 const qna = [
   {
