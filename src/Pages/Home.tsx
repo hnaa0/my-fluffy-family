@@ -2,8 +2,13 @@ import styled from "styled-components";
 import dogPng from "../assets/icons/dog-icon.png";
 import catPng from "../assets/icons/cat-icon.png";
 import Carousel from "../components/Carousel";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
 export default function Home() {
+  const catData = useSelector((state: RootState) => state.animalStore.cat);
+  const dogData = useSelector((state: RootState) => state.animalStore.dog);
+
   return (
     <>
       <Container>
@@ -12,12 +17,12 @@ export default function Home() {
           <br />
           Family!
         </CarouselTitle>
-        <Carousel />
+        <Carousel data={dogData} />
         <PngImg src={dogPng} />
       </Container>
       <Container>
         <PngImg src={catPng} />
-        <Carousel />
+        <Carousel data={catData} />
         <CarouselTitle>
           Be My
           <br />
@@ -33,6 +38,7 @@ const Container = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 20px;
   padding: 40px 60px;
   margin: 50px 0;
 `;

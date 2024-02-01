@@ -16,7 +16,7 @@ export default function AppRouter() {
         <Route path="/info/centerinfo" element={<CenterInfo />} />
         <Route path="/info/faq" element={<FAQ />} />
         <Route path="/findfamily/animals" element={<Animals />} />
-        <Route path="/animalNO" element={<AnimalCardInfo />} />
+        <Route path="/animals/:animalNO" element={<AnimalCardInfo />} />
         <Route path="/findfamily/adoptprocess" element={<AdoptProcess />} />
         <Route path="/findfamily/fosterprogram" element={<Fosterprogram />} />
         <Route path="/playground" element={<Playground />} />

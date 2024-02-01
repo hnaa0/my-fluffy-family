@@ -1,31 +1,46 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import AnimalCard from "../components/AnimalCard";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { AnimalsDataType } from "../App";
+import { RootState } from "../store/store";
 
 export default function Animals() {
+  const [category, setCategory] = useState("");
+  const [animals, setAnimals] = useState<AnimalsDataType[]>();
+
+  const animalData = useSelector((state: RootState) => state.animalStore.all);
+
+  useEffect(() => {
+    setAnimals(animalData);
+  }, [category, animalData]);
+
+  const handleCategory = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    setCategory(e.currentTarget.value);
+  };
+
   return (
     <Container>
       <Mailtitle>입양동물소개</Mailtitle>
       <Article>
         <CategoryBtns>
-          <Btn>ALL()</Btn>
-          <Btn>CAT()</Btn>
-          <Btn>DOG()</Btn>
+          <Btn onClick={handleCategory} value="ALL">
+            ALL({animalData.length})
+          </Btn>
+          <Btn onClick={handleCategory} value="CAT">
+            CAT()
+          </Btn>
+          <Btn onClick={handleCategory} value="DOG">
+            DOG()
+          </Btn>
         </CategoryBtns>
         <AnimalGroup>
-          <Link to="/animalNO">
-            <AnimalCard />
-          </Link>
-          <AnimalCard />
-          <AnimalCard />
-          <AnimalCard />
-          <AnimalCard />
-          <AnimalCard />
-          <AnimalCard />
-          <AnimalCard />
-          <AnimalCard />
-          <AnimalCard />
-          <AnimalCard />
+          {animalData &&
+            animalData.map((animal) => {
+              return <AnimalCard key={animal.ANIMAL_NO} data={animal} />;
+            })}
         </AnimalGroup>
       </Article>
     </Container>
