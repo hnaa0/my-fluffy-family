@@ -40,7 +40,7 @@ export default function Header() {
           </SubCategory>
         </MainCategoryLi>
         <Link to="/playground">
-          <MainCategoryLi>반려견놀이터</MainCategoryLi>
+          <MainCategoryLi>PLAYGROUND</MainCategoryLi>
         </Link>
       </MainCategory>
     </Nav>
