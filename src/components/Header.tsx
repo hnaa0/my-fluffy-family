@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import mff from "../assets/mff-logo.png";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -12,7 +13,9 @@ export default function Header() {
   };
   return (
     <Nav>
-      <img src="https://placehold.co/150x60" alt="" />
+      <Link to="/">
+        <Logo src={mff} alt="" />
+      </Link>
       <MainCategory>
         <MainCategoryLi>
           <div onClick={handleCategory}>INFO</div>
@@ -50,8 +53,13 @@ export default function Header() {
 const Nav = styled.nav`
   display: flex;
   align-items: center;
-  height: 60px;
+  height: 80px;
   padding: 0 16px;
+`;
+
+const Logo = styled.img`
+  width: auto;
+  height: 80px;
 `;
 
 const MainCategory = styled.ul`
@@ -67,7 +75,7 @@ const MainCategoryLi = styled.li`
   width: 200px;
   height: 100%;
   text-align: center;
-  line-height: 60px;
+  line-height: 80px;
   font-size: 20px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -87,7 +95,7 @@ const SubCategory = styled.ul`
   background-color: var(--color-white);
   display: none;
   position: absolute;
-  top: 60px;
+  top: 80px;
   width: 100%;
   color: black;
   font-size: 16px;
@@ -96,8 +104,8 @@ const SubCategory = styled.ul`
 
 const SubCategoryLi = styled.li`
   width: 100%;
-  height: 40px;
-  line-height: 40px;
+  height: 50px;
+  line-height: 50px;
 
   &:hover {
     color: var(--color-white);
