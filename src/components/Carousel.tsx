@@ -45,13 +45,15 @@ export default function Carousel({ data }: PropsType) {
     }
   }
   const [slideMove, setSlideMove] = useState<number>(0);
-  const imgBoxWidth = photos.length;
-  const carouselBoxWidth = 258 * imgBoxWidth;
+  const imgBoxLength = photos.length;
+  const carouselBoxWidth = 258 * imgBoxLength;
 
   const handleButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     if (e.currentTarget.value === "next") {
-      slideMove > -carouselBoxWidth && setSlideMove((prev) => prev - 1032);
+      slideMove > -carouselBoxWidth + 1032 &&
+        setSlideMove((prev) => prev - 1032);
+      console.log(slideMove, carouselBoxWidth);
       return;
     } else {
       slideMove < 0 && setSlideMove((prev) => prev + 1032);
@@ -78,7 +80,7 @@ export default function Carousel({ data }: PropsType) {
           </svg>
         </PrevBtn>
       )}
-      {slideMove !== -carouselBoxWidth && slideMove > -carouselBoxWidth && (
+      {slideMove >= -carouselBoxWidth + 1032 && (
         <NextBtn value="next" onClick={handleButton}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
