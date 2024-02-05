@@ -4,17 +4,30 @@ import AnimalCard from "../components/AnimalCard";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { AnimalsDataType } from "../App";
-import { RootState } from "../store/store";
 
 export default function Animals() {
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("all");
   const [animals, setAnimals] = useState<AnimalsDataType[]>();
 
-  const animalData = useSelector((state: RootState) => state.animalStore.all);
+  interface State {
+    animalStore: {
+      [key: string]: AnimalsDataType[];
+    };
+  }
+
+  const allAnimalData = useSelector((state: State) => state.animalStore.all);
+  const catData = useSelector((state: State) => state.animalStore.cat);
+  const dogData = useSelector((state: State) => state.animalStore.dog);
 
   useEffect(() => {
-    setAnimals(animalData);
-  }, [category, animalData]);
+    if (category === "all") {
+      setAnimals(allAnimalData);
+    } else if (category === "cat") {
+      setAnimals(catData);
+    } else if (category === "dog") {
+      setAnimals(dogData);
+    }
+  }, [category, allAnimalData, catData, dogData]);
 
   const handleCategory = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
@@ -26,19 +39,19 @@ export default function Animals() {
       <Mailtitle>입양동물소개</Mailtitle>
       <Article>
         <CategoryBtns>
-          <Btn onClick={handleCategory} value="ALL">
-            ALL({animalData.length})
+          <Btn onClick={handleCategory} value="all">
+            ALL({allAnimalData ? allAnimalData.length : 0})
           </Btn>
-          <Btn onClick={handleCategory} value="CAT">
-            CAT()
+          <Btn onClick={handleCategory} value="cat">
+            CAT({catData ? catData.length : 0})
           </Btn>
-          <Btn onClick={handleCategory} value="DOG">
-            DOG()
+          <Btn onClick={handleCategory} value="dog">
+            DOG({dogData ? dogData.length : 0})
           </Btn>
         </CategoryBtns>
         <AnimalGroup>
-          {animalData &&
-            animalData.map((animal) => {
+          {animals &&
+            animals.map((animal) => {
               return <AnimalCard key={animal.ANIMAL_NO} data={animal} />;
             })}
         </AnimalGroup>
