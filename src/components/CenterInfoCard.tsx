@@ -63,6 +63,7 @@ const InfoCardContainer = styled.div`
   height: 400px;
   padding: 40px 20px;
   color: var(--color-white);
+  font-family: Gmarket_Light;
   letter-spacing: -0.3px;
   border-radius: 20px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -80,9 +81,8 @@ const TitleBox = styled.div`
   margin-bottom: auto;
 
   h3 {
+    font-family: Gmarket;
     font-size: 24px;
-    font-weight: bold;
-    letter-spacing: -1.5px;
     margin-bottom: 8px;
   }
 
@@ -95,6 +95,7 @@ const InfoBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  line-height: 1.2;
   align-items: center;
 
   svg {

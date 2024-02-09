@@ -75,7 +75,7 @@ const MainCategoryLi = styled.li`
   width: 200px;
   height: 100%;
   text-align: center;
-  line-height: 80px;
+  line-height: 4;
   font-size: 20px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -104,8 +104,8 @@ const SubCategory = styled.ul`
 
 const SubCategoryLi = styled.li`
   width: 100%;
-  height: 50px;
-  line-height: 50px;
+  height: 48px;
+  line-height: 3;
 
   &:hover {
     color: var(--color-white);

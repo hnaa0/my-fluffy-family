@@ -36,6 +36,7 @@ html {
 }
 
 body {
+    font-family: Gmarket, snas-serif, Arial;
     color: var(--color-gray-dark);
 }
 

@@ -220,6 +220,8 @@ const CheckListTitle = styled(ArticleTitle)`
 const CheckList = styled(UnorderedList)`
   width: 1000px;
   font-size: 18px;
+  font-family: Gmarket_Light;
+  color: var(--color-black);
   padding: 60px 40px;
   border-radius: 20px;
   border: 2px solid var(--color-orange-light);

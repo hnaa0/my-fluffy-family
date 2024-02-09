@@ -242,11 +242,12 @@ const BtnBox = styled.div`
   width: 100%;
 
   button {
+    align-items: center;
     width: 120px;
     height: 40px;
     text-align: center;
     font-size: 14px;
-    font-weight: bold;
+    line-height: 3.2;
     letter-spacing: -0.5px;
     margin-left: 12px;
     border-radius: 20px;
@@ -282,6 +283,5 @@ const VideoNotice = styled.span`
 
 const DescTxt = styled.p`
   width: 100%;
-  line-height: 1.5;
   margin-top: 48px;
 `;

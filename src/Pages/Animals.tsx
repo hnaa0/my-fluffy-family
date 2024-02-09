@@ -91,9 +91,9 @@ const CategoryBtns = styled.div`
 const Btn = styled.button`
   width: 160px;
   height: 40px;
+  line-height: 2.3;
   text-align: center;
   font-size: 20px;
-  font-weight: bold;
   border-radius: 20px;
   background-color: var(--color-yellow-normal);
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;

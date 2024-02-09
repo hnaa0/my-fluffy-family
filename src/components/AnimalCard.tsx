@@ -84,6 +84,5 @@ const Name = styled.div`
   height: 50px;
   font-size: 18px;
   text-align: center;
-  line-height: 50px;
-  letter-spacing: -1px;
+  line-height: 3;
 `;

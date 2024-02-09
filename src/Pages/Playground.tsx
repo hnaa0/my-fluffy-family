@@ -152,7 +152,7 @@ export default function Playground() {
           <tbody>
             {playgroundData.map((item) => {
               return (
-                <tr>
+                <tr key={item.name}>
                   <td>{item.name}</td>
                   <td>{item.scale}</td>
                   <td>{item.location}</td>
@@ -228,7 +228,6 @@ const PlaygroundTable = styled.table`
 
   thead th {
     font-size: 18px;
-    font-weight: bold;
     padding: 24px;
     border-bottom: 2px solid var(--color-white);
   }
@@ -239,6 +238,10 @@ const PlaygroundTable = styled.table`
 
   thead th:last-child {
     width: 200px;
+  }
+
+  tbody {
+    font-family: Gmarket_Light;
   }
 
   tbody td {

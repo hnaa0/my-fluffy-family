@@ -39,13 +39,14 @@ export default function Footer() {
 }
 
 const Foot = styled.footer`
+  font-family: Gmarket_Light;
   display: flex;
   width: 100%;
   height: 200px;
   color: var(--color-white);
   padding: 60px 60px;
   background-color: var(--color-green);
-  font-size: 12px;
+  font-size: 14px;
 `;
 
 const FooterUl = styled.ul`

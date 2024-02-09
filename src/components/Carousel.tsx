@@ -168,7 +168,7 @@ const TextBox = styled.div`
   justify-content: center;
   width: 100%;
   height: 60px;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
   font-size: 14px;
   margin-top: auto;
   padding: 0 4px;
