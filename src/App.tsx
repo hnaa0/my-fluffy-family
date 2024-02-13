@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import GlobalStyles from "./GlobalStyles";
+import GlobalStyles from "./styles/GlobalStyles";
 import AppRouter from "./Router";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
