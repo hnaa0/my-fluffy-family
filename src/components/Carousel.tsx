@@ -44,6 +44,7 @@ export default function Carousel({ data }: PropsType) {
       }
     }
   }
+
   const [slideMove, setSlideMove] = useState<number>(0);
   const imgBoxLength = photos.length;
   const carouselBoxWidth = 258 * imgBoxLength;
@@ -53,7 +54,6 @@ export default function Carousel({ data }: PropsType) {
     if (e.currentTarget.value === "next") {
       slideMove > -carouselBoxWidth + 1032 &&
         setSlideMove((prev) => prev - 1032);
-      console.log(slideMove, carouselBoxWidth);
       return;
     } else {
       slideMove < 0 && setSlideMove((prev) => prev + 1032);
