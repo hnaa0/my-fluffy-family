@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../styles/theme";
 import checkmark from "../assets/icons/check-icon.png";
 import learning from "../assets/icons/learn-icon.png";
 import calendar from "../assets/icons/calendar-icon.png";
@@ -173,12 +174,20 @@ const ArticleTitle = styled.h3`
   padding: 12px;
   background-color: var(--color-white);
   margin-bottom: 12px;
+
+  @media ${device.mobile} {
+    font-size: 24px;
+  }
 `;
 
 const UnorderedList = styled.ul`
   width: 1000px;
   padding: 60px 40px;
   border-radius: 20px;
+
+  @media ${device.mobile} {
+    width: 100vw;
+  }
 `;
 
 const ListItem = styled.li`
@@ -192,12 +201,20 @@ const Container = styled.section`
   align-items: center;
   padding: 100px;
   letter-spacing: -0.3px;
+
+  @media ${device.mobile} {
+    padding: 130px 20px 50px;
+  }
 `;
 
 const Mailtitle = styled.h2`
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 52px;
+
+  @media ${device.mobile} {
+    font-size: 32px;
+  }
 `;
 
 const Article = styled.article`
@@ -206,6 +223,10 @@ const Article = styled.article`
   flex-direction: column;
   align-items: center;
   margin: 52px 0 80px;
+
+  @media ${device.mobile} {
+    margin: 0 0 80px;
+  }
 `;
 
 const CheckListTitle = styled(ArticleTitle)`
@@ -215,6 +236,10 @@ const CheckListTitle = styled(ArticleTitle)`
   padding: 12px;
   background-color: var(--color-white);
   margin-bottom: 12px;
+
+  @media ${device.mobile} {
+    font-size: 24px;
+  }
 `;
 
 const CheckList = styled(UnorderedList)`
@@ -235,6 +260,12 @@ const CheckList = styled(UnorderedList)`
     fill: var(--color-green);
     margin-right: 12px;
   }
+
+  @media ${device.mobile} {
+    width: 100%;
+    font-size: 16px;
+    padding: 30px;
+  }
 `;
 
 const CheckListLi = styled(ListItem)`
@@ -243,12 +274,24 @@ const CheckListLi = styled(ListItem)`
   &:not(:nth-last-of-type(1)) {
     border-bottom: 1px solid var(--color-gray-light);
   }
+
+  @media ${device.mobile} {
+    font-size: 14px;
+  }
 `;
 
-const Process = styled(UnorderedList)``;
+const Process = styled(UnorderedList)`
+  @media ${device.mobile} {
+    padding-bottom: 0;
+  }
+`;
 
 const ProcessTitle = styled(ArticleTitle)`
   margin-bottom: -40px;
+
+  @media ${device.mobile} {
+    font-size: 24px;
+  }
 `;
 
 const ProcessLi = styled(ListItem)`
@@ -268,9 +311,17 @@ const ProcessSubtitle = styled.h4`
   font-weight: bold;
   color: var(--color-black);
   margin: 12px 0 4px;
+
+  @media ${device.mobile} {
+    font-size: 18px;
+  }
 `;
 
-const ProcessTxt = styled.span``;
+const ProcessTxt = styled.span`
+  @media ${device.mobile} {
+    font-size: 14px;
+  }
+`;
 
 const ProcessImg = styled.div`
   position: relative;
@@ -282,9 +333,18 @@ const ProcessImg = styled.div`
   border-radius: 50%;
   background-color: var(--color-white);
 
+  @media ${device.mobile} {
+    width: 60px;
+    height: 60px;
+  }
+
   img {
     width: 50px;
     height: auto;
+
+    @media ${device.mobile} {
+      width: 40px;
+    }
   }
 `;
 
@@ -300,6 +360,16 @@ const Notice = styled(UnorderedList)`
     width: 160px;
     height: auto;
     transform: scaleX(-1);
+
+    @media ${device.mobile} {
+      width: 100px;
+      right: 10px;
+    }
+  }
+
+  @media ${device.mobile} {
+    width: 100%;
+    font-family: Gmarket_Light;
   }
 `;
 
