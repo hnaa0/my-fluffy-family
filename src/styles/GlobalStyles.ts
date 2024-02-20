@@ -38,7 +38,7 @@ html {
 body {
     font-family: Gmarket, snas-serif, Arial;
     color: var(--color-gray-dark);
-}
+    overflow: hidden;
 
 input, textarea { 
     -moz-user-select: auto;
