@@ -223,7 +223,7 @@ const SubCategoryLi = styled.li`
 `;
 
 const HamburgerMenu = styled.div`
-  display: hidden;
+  display: none;
   width: 40px;
   height: 40px;
 
