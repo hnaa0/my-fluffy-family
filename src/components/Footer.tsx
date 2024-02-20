@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import naverCafe from "../assets/icons/naver_cafe.png";
+import { device } from "../styles/theme";
 
 export default function Footer() {
   return (
@@ -47,6 +48,13 @@ const Foot = styled.footer`
   padding: 60px 60px;
   background-color: var(--color-green);
   font-size: 14px;
+
+  @media ${device.mobile} {
+    flex-direction: column;
+    height: 120px;
+    font-size: 10px;
+    padding: 20px;
+  }
 `;
 
 const FooterUl = styled.ul`
@@ -63,6 +71,8 @@ const Box = styled.div`
 `;
 
 const PolicyBox = styled(Box)`
+  margin-top: 8px;
+
   span:last-child {
     margin-left: 8px;
   }
@@ -74,9 +84,23 @@ const IconBox = styled(Box)`
   a {
     height: 40px;
   }
+
+  @media ${device.mobile} {
+    margin-left: auto;
+    margin-top: 4px;
+
+    a {
+      height: 24px;
+    }
+  }
 `;
 
 const IconImg = styled.img`
   width: 40px;
   height: 40px;
+
+  @media ${device.mobile} {
+    width: 24px;
+    height: 24px;
+  }
 `;
