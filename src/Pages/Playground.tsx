@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../styles/theme";
 import park from "../assets/icons/park-icon.png";
 
 const playgroundData = [
@@ -99,39 +100,41 @@ export default function Playground() {
         </ArticleNotice>
         <ComplianceUl>
           <ComplianceLi>
-            반려견은 관할 구청에 반드시 동물등록(소유주,주소,연락처 변경시
+            -반려견은 관할 구청에 반드시 동물등록(소유주,주소,연락처 변경시
             변경등록)을 해야합니다.
           </ComplianceLi>
           <ComplianceLi>
-            놀이터에서는 반드시 반려견과 견주(소유자 또는 관리자)가 함께
+            -놀이터에서는 반드시 반려견과 견주(소유자 또는 관리자)가 함께
             입장해야 합니다.
           </ComplianceLi>
           <ComplianceLi>
-            단, 13세 미만 어린이는 성인 보호자와 함께 반려견을 동반하여 입장해야
-            합니다.
+            -단, 13세 미만 어린이는 성인 보호자와 함께 반려견을 동반하여
+            입장해야 합니다.
             <br />
-            특히, 동반 입장한 어린이 및 영·유아는 안전사고의 위험 우려가 크므로
-            보호자는 더욱 큰 관심을 갖고 보호·관리해주시기 바랍니다.
+            &nbsp;&nbsp;특히, 동반 입장한 어린이 및 영·유아는 안전사고의 위험
+            우려가 크므로 보호자는 더욱 큰 관심을 갖고 보호·관리해주시기
+            바랍니다.
           </ComplianceLi>
           <ComplianceLi>
-            놀이터 출입 시, 배변봉투와 목줄을 꼭 지참한 후 입장해야 합니다.{" "}
-            <br /> 반려견이 배변시 즉시 처리하고, 놀이터 입·퇴장 시에도 반드시
-            목줄을 착용해야 합니다.
+            -놀이터 출입 시, 배변봉투와 목줄을 꼭 지참한 후 입장해야 합니다.{" "}
+            <br /> &nbsp;&nbsp;반려견이 배변시 즉시 처리하고, 놀이터 입·퇴장
+            시에도 반드시 목줄을 착용해야 합니다.
           </ComplianceLi>
           <ComplianceLi>
-            반려견주께서는 반려견간 싸움 또는 반려견에 의한 교상이 발생하지
-            않도록 주의를 갖고 항상 주시해주세요. <br /> 사고 발생 시 책임은
-            피해를 준 반려견 소유주에게 있습니다.
+            -반려견주께서는 반려견간 싸움 또는 반려견에 의한 교상이 발생하지
+            않도록 주의를 갖고 항상 주시해주세요. <br /> &nbsp;&nbsp;사고 발생
+            시 책임은 피해를 준 반려견 소유주에게 있습니다.
           </ComplianceLi>
           <ComplianceLi>
-            맹견, 질병이 있는 견, 발정이 있는 견 등은 출입할 수 없습니다.
+            -맹견, 질병이 있는 견, 발정이 있는 견 등은 출입할 수 없습니다.
           </ComplianceLi>
           <ComplianceLi>
-            놀이터 내에서는 흡연과 음식물 반입을 삼가해주십시오. <br /> 사람
-            음식물, 반려견 사료 및 간식류 등 모든 음식물을 금지합니다.
+            -놀이터 내에서는 흡연과 음식물 반입을 삼가해주십시오. <br />{" "}
+            &nbsp;&nbsp;사람 음식물, 반려견 사료 및 간식류 등 모든 음식물을
+            금지합니다.
           </ComplianceLi>
           <ComplianceLi>
-            놀이터와 주변에서는 반려견과 다른 이용자들에게 위협을 주는 고성방가
+            -놀이터와 주변에서는 반려견과 다른 이용자들에게 위협을 주는 고성방가
             및 불쾌한 행동을 삼가해 주십시오.
           </ComplianceLi>
         </ComplianceUl>
@@ -139,6 +142,11 @@ export default function Playground() {
       </ComplianceArtice>
       <PlaygroundArticle>
         <ArticleTitle>반려견 놀이터 목록</ArticleTitle>
+        {window.innerWidth < 765 && (
+          <span style={{ fontSize: "12px", fontFamily: "Gmarket_Light" }}>
+            좌우로 스크롤해주세요.
+          </span>
+        )}
         <PlaygroundTable>
           <thead>
             <tr>
@@ -174,28 +182,51 @@ const Container = styled.section`
   align-items: center;
   padding: 100px;
   letter-spacing: -0.3px;
+
+  @media ${device.mobile} {
+    padding: 130px 20px 50px;
+  }
 `;
 
 const Mailtitle = styled.h2`
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 52px;
+
+  @media ${device.mobile} {
+    font-size: 32px;
+  }
 `;
 
 const Article = styled.article`
   width: 1100px;
   padding: 16px;
   margin: 52px 0 80px;
+
+  @media ${device.mobile} {
+    width: 100%;
+  }
+  }
 `;
 
 const ArticleTitle = styled.h3`
   font-size: 28px;
   margin-bottom: 28px;
+
+  @media ${device.mobile} {
+    font-size: 24px;
+    margin-bottom: 24px;
+    letter-spacing: -1.5px;
+  }
 `;
 
 const ComplianceArtice = styled(Article)`
   position: relative;
   letter-spacing: -0.7px;
+
+  @media ${device.mobile} {
+    font-size: 14px;
+  }
 
   img {
     position: absolute;
@@ -203,6 +234,11 @@ const ComplianceArtice = styled(Article)`
     bottom: -8px;
     width: 240px;
     height: auto;
+
+    @media ${device.mobile} {
+      width: 80px;
+      bottom: -20px;
+    }
   }
 `;
 
@@ -220,16 +256,28 @@ const ComplianceLi = styled.li`
 
 const PlaygroundArticle = styled(Article)`
   letter-spacing: -0.7px;
+
+  @media ${device.mobile} {
+    overflow: scroll;
+  }
 `;
 
 const PlaygroundTable = styled.table`
   text-align: center;
   background-color: var(--color-yellow-light);
 
+  @media ${device.mobile} {
+    font-size: 12px;
+  }
+
   thead th {
     font-size: 18px;
     padding: 24px;
     border-bottom: 2px solid var(--color-white);
+
+    @media ${device.mobile} {
+      font-size: 14px;
+    }
   }
 
   thead th:nth-child(2) {
@@ -248,5 +296,26 @@ const PlaygroundTable = styled.table`
     vertical-align: middle;
     padding: 36px;
     border-bottom: 2px solid var(--color-white);
+
+    @media ${device.mobile} {
+      padding: 12px;
+    }
+  }
+
+  @media ${device.mobile} {
+    width: 600px;
+    overflow-x: scroll;
+
+    thead th:nth-child(2) {
+      width: 50px;
+    }
+
+    thead th:nth-child(3) {
+      width: 200px;
+    }
+
+    thead th:last-child {
+      width: 120px;
+    }
   }
 `;
