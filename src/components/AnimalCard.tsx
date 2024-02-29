@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { RootState } from "../store/store";
 import { PhotoType } from "./Carousel";
 import { useSelector } from "react-redux";
+import { device } from "../styles/theme";
 
 type PropsType = {
   data: {
@@ -40,7 +41,7 @@ export default function AnimalCard({ data }: PropsType) {
 
   return (
     <CardContainer>
-      <Link to={`/animals/${data.ANIMAL_NO}`}>
+      <Link to={`/findfamily/animals/${data.ANIMAL_NO}`}>
         <ImgBox>
           <img src={`https://${photos}`} />
         </ImgBox>
@@ -66,12 +67,21 @@ const CardContainer = styled.div`
     transform: scale(1.02);
     box-shadow: rgba(99, 99, 99, 0.35) 0px 2px 8px 0px;
   }
+
+  @media ${device.mobile} {
+    width: 160px;
+    height: 160px;
+  }
 `;
 
 const ImgBox = styled.div`
   width: 100%;
   height: 250px;
   flex-shrink: 0;
+
+  @media ${device.mobile} {
+    height: 120px;
+  }
 
   img {
     width: 100%;
@@ -85,4 +95,10 @@ const Name = styled.div`
   font-size: 18px;
   text-align: center;
   line-height: 3;
+
+  @media ${device.mobile} {
+    font-size: 12px;
+    height: 40px;
+    line-height: 3.5;
+  }
 `;

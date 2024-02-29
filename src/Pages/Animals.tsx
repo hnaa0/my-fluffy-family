@@ -4,6 +4,7 @@ import AnimalCard from "../components/AnimalCard";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { AnimalsDataType } from "../App";
+import { device } from "../styles/theme";
 
 export default function Animals() {
   const [category, setCategory] = useState("all");
@@ -66,6 +67,10 @@ const Container = styled.section`
   align-items: center;
   padding: 100px;
   letter-spacing: -0.3px;
+
+  @media ${device.mobile} {
+    padding: 130px 20px 50px;
+  }
 `;
 
 const Mailtitle = styled.h2`
@@ -86,6 +91,10 @@ const CategoryBtns = styled.div`
   justify-content: space-between;
   width: 500px;
   margin-bottom: 36px;
+
+  @media ${device.mobile} {
+    width: 300px;
+  }
 `;
 
 const Btn = styled.button`
@@ -102,10 +111,21 @@ const Btn = styled.button`
   &:hover {
     background-color: var(--color-yellow-light);
   }
+
+  @media ${device.mobile} {
+    width: 90px;
+    font-size: 14px;
+    line-height: 3.2;
+  }
 `;
 
 const AnimalGroup = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
+
+  @media ${device.mobile} {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
 `;
