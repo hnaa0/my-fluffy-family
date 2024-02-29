@@ -1,5 +1,6 @@
 import { useCallback, useState, useRef } from "react";
 import styled from "styled-components";
+import { device } from "../styles/theme";
 
 interface ListProps {
   question: string;
@@ -87,6 +88,11 @@ const FaqContainer = styled.div`
   margin-bottom: 16px;
   border: 2px solid var(--color-orange-light);
   border-radius: 16px;
+
+  @media ${device.mobile} {
+    width: 100%;
+    font-size: 14px;
+  }
 `;
 
 const FaqQuestion = styled.div`
@@ -130,4 +136,8 @@ const FaqAnswerWrapper = styled.div`
 const FaqAnswer = styled.div`
   white-space: pre-wrap;
   padding: 20px 48px;
+
+  @media ${device.mobile} {
+    font-family: Gmarket_Light;
+  }
 `;

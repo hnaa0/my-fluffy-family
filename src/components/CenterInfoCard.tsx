@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../styles/theme";
 
 interface InfoProps {
   title: string;
@@ -72,6 +73,12 @@ const InfoCardContainer = styled.div`
     var(--color-orange-light),
     var(--color-orange-dark)
   );
+
+  @media ${device.mobile} {
+    height: 300px;
+    margin-bottom: 16px;
+    padding: 20px;
+  }
 `;
 
 const TitleBox = styled.div`
@@ -84,10 +91,18 @@ const TitleBox = styled.div`
     font-family: Gmarket;
     font-size: 24px;
     margin-bottom: 8px;
+
+    @media ${device.mobile} {
+      font-size: 20px;
+    }
   }
 
   h4 {
     font-size: 20px;
+
+    @media ${device.mobile} {
+      font-size: 16px;
+    }
   }
 `;
 
@@ -98,8 +113,17 @@ const InfoBox = styled.div`
   line-height: 1.2;
   align-items: center;
 
+  @media ${device.mobile} {
+    font-size: 14px;
+  }
+
   svg {
     margin-bottom: 8px;
+
+    @media ${device.mobile} {
+      width: 18px;
+      height: 18px;
+    }
   }
 `;
 
