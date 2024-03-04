@@ -78,6 +78,10 @@ const Mailtitle = styled.h2`
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 52px;
+
+  @media ${device.mobile} {
+    font-size: 32px;
+  }
 `;
 
 const Article = styled.article`
@@ -85,6 +89,10 @@ const Article = styled.article`
   flex-direction: column;
   align-items: center;
   margin: 52px 0 80px;
+
+  @media ${device.mobile} {
+    margin: 0 0 80px;
+  }
 `;
 
 const CategoryBtns = styled.div`
