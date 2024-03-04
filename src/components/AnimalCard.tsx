@@ -55,8 +55,8 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   border-radius: 16px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   transition: all 0.2s;
@@ -68,9 +68,9 @@ const CardContainer = styled.div`
     box-shadow: rgba(99, 99, 99, 0.35) 0px 2px 8px 0px;
   }
 
-  @media ${device.mobile} {
-    width: 160px;
-    height: 160px;
+  a {
+    width: 100%;
+    height: 100%;
   }
 `;
 
@@ -80,7 +80,7 @@ const ImgBox = styled.div`
   flex-shrink: 0;
 
   @media ${device.mobile} {
-    height: 120px;
+    height: 200px;
   }
 
   img {

@@ -67,6 +67,7 @@ const Container = styled.section`
   align-items: center;
   padding: 100px;
   letter-spacing: -0.3px;
+  width: 100%;
 
   @media ${device.mobile} {
     padding: 130px 20px 50px;
