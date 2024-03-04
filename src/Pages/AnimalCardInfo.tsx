@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { PhotoType } from "../components/Carousel";
 import React, { useState } from "react";
+import YouTube from "react-youtube";
+import { device } from "../styles/theme";
 
 export default function AnimalCardInfo() {
   const params = useParams();
@@ -13,6 +15,7 @@ export default function AnimalCardInfo() {
   const photoData: PhotoType = useSelector(
     (state: RootState) => state.photoStore.photos
   );
+  const [viewWidth, setViewWidth] = useState(window.innerWidth);
 
   const youtubeUrl = (url: string) => {
     return url.replace("https://youtu.be/", "");
@@ -126,7 +129,7 @@ export default function AnimalCardInfo() {
                   <VideoNotice>
                     📢 설정 &gt; 화질 &gt; 1080p ~ 2160p로 설정 후 시청바랍니다.
                   </VideoNotice>
-                  <iframe
+                  {/* <iframe
                     width="1100"
                     height="620"
                     src={`//www.youtube.com/embed/${youtubeUrl(
@@ -135,7 +138,15 @@ export default function AnimalCardInfo() {
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
-                  ></iframe>
+                  ></iframe> */}
+                  <YoutubeBox>
+                    <YouTube
+                      videoId={youtubeUrl(data[0].INTRCN_MVP_URL)}
+                      onEnd={(e) => {
+                        e.target.stopVideo(0);
+                      }}
+                    />
+                  </YoutubeBox>
                 </>
               )}
               <DescTxt
@@ -161,12 +172,20 @@ const Container = styled.section`
   align-items: center;
   padding: 100px;
   letter-spacing: -0.3px;
+
+  @media ${device.mobile} {
+    padding: 130px 20px 50px;
+  }
 `;
 
 const Mailtitle = styled.h2`
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 52px;
+
+  @media ${device.mobile} {
+    font-size: 28px;
+  }
 `;
 
 const InfoGroup = styled.div`
@@ -174,22 +193,42 @@ const InfoGroup = styled.div`
   justify-content: space-between;
   width: 1200px;
   margin-bottom: 100px;
+
+  @media ${device.mobile} {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const ImgBox = styled.div`
   width: 600px;
+
+  @media ${device.mobile} {
+    width: 100vw;
+  }
 `;
 
 const MainImg = styled.img`
   width: 100%;
   height: 600px;
   object-fit: cover;
+
+  @media ${device.mobile} {
+    height: auto;
+  }
 `;
 
 const NextImgGroup = styled.div`
   display: flex;
   margin-top: 8px;
   cursor: pointer;
+
+  @media ${device.mobile} {
+    width: 100%;
+    padding: 0 8px;
+    overflow-x: scroll;
+  }
 
   img {
     width: 55px;
@@ -207,15 +246,31 @@ const NextImgGroup = styled.div`
 const TextGroup = styled.div`
   flex-shrink: 0;
   height: 100%;
+
+  @media ${device.mobile} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 const InfoBox = styled.div`
   width: 500px;
   margin: 28px 0;
+
+  @media ${device.mobile} {
+    width: 100%;
+    padding: 0 8px;
+  }
 `;
 
 const InfoTitle = styled(SubTitle)`
   font-size: 18px;
+
+  @media ${device.mobile} {
+    font-size: 16px;
+  }
 `;
 
 const InfoTable = styled.table`
@@ -227,12 +282,20 @@ const InfoTable = styled.table`
   td {
     border-bottom: 1px solid var(--color-gray-light);
     padding: 24px;
+
+    @media ${device.mobile} {
+      font-size: 14px;
+    }
   }
 
   tr td:first-of-type {
     font-size: 14px;
     font-weight: bold;
     color: var(--color-gray-normal);
+
+    @media ${device.mobile} {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -262,12 +325,20 @@ const BtnBox = styled.div`
 
 const DescGroup = styled.div`
   width: 1200px;
+
+  @media ${device.mobile} {
+    width: 100%;
+  }
 `;
 
 const DescTitle = styled(SubTitle)`
   font-size: 24px;
   padding: 12px;
   border-bottom: 1px solid var(--color-gray-light);
+
+  @media ${device.mobile} {
+    font-size: 20px;
+  }
 `;
 
 const DescBox = styled.div`
@@ -279,9 +350,30 @@ const DescBox = styled.div`
 
 const VideoNotice = styled.span`
   margin-bottom: 20px;
+  font-size: 18px;
+  font-family: Gmarket_Light;
+
+  @media ${device.mobile} {
+    font-size: 12px;
+  }
 `;
 
 const DescTxt = styled.p`
   width: 100%;
   margin-top: 48px;
+
+  @media ${device.mobile} {
+    font-size: 14px;
+  }
+`;
+
+const YoutubeBox = styled.div`
+  @media ${device.mobile} {
+    width: 100%;
+
+    iframe {
+      width: 100%;
+      height: 300px;
+    }
+  }
 `;
