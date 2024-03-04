@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Accordion from "../components/Accordion";
+import { device } from "../styles/theme";
 
 interface QnaInterface {
   question: string;
@@ -68,10 +69,18 @@ const Container = styled.section`
   align-items: center;
   padding: 100px;
   letter-spacing: -0.3px;
+
+  @media ${device.mobile} {
+    padding: 130px 20px 50px;
+  }
 `;
 
 const Mailtitle = styled.h2`
   font-size: 36px;
   font-weight: bold;
   margin-bottom: 52px;
+
+  @media ${device.mobile} {
+    font-size: 32px;
+  }
 `;
