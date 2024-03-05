@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import infoImg from "../assets/images/infoimage.jpg";
 import CenterInfoCard from "../components/CenterInfoCard";
+import { device } from "../styles/theme";
 
 const centerInfomation = [
   {
@@ -34,7 +35,7 @@ export default function CenterInfo() {
   return (
     <>
       <Container>
-        <MainItro>
+        <MainIntro>
           <img src={infoImg} alt="info image" />
           <h2>“시민과 동물이 행복하게 공존하는 서울을 만들겠습니다.”</h2>
           <p>
@@ -53,7 +54,7 @@ export default function CenterInfo() {
             <br />
             시민 여러분의 많은 관심과 성원 부탁드립니다.
           </p>
-        </MainItro>
+        </MainIntro>
         <CenterIntro>
           <h2>센터소개</h2>
           <CenterInfoCardGroup>
@@ -87,9 +88,14 @@ const Article = styled.article`
 
 const Container = styled.section`
   padding: 52px;
+  width: 100vw;
+
+  @media ${device.mobile} {
+    padding: 130px 20px 50px;
+  }
 `;
 
-const MainItro = styled(Article)`
+const MainIntro = styled(Article)`
   margin-top: 20px;
 
   &::before,
@@ -113,19 +119,38 @@ const MainItro = styled(Article)`
     bottom: -20px;
   }
 
+  @media ${device.mobile} {
+    font-size: 14px;
+    padding: 0 20px;
+  }
+
   img {
+    width: 100%;
+    max-width: 1150px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    @media ${device.mobile} {
+      width: 100vw;
+    }
   }
 
   h2 {
     font-size: 24px;
     margin: 40px 0 24px 0;
     color: var(--color-orange-dark);
+
+    @media ${device.mobile} {
+      font-size: 20px;
+    }
   }
 
   p {
     text-align: center;
     line-height: 1.5;
+
+    @media ${device.mobile} {
+      font-family: Gmarket_light;
+    }
   }
 `;
 
@@ -134,6 +159,10 @@ const CenterIntro = styled(Article)`
     font-size: 36px;
     font-weight: bold;
     margin-bottom: 52px;
+
+    @media ${device.mobile} {
+      font-size: 32px;
+    }
   }
 `;
 
@@ -142,4 +171,9 @@ const CenterInfoCardGroup = styled.div`
   width: 100%;
   max-width: 1100px;
   justify-content: space-between;
+
+  @media ${device.mobile} {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
