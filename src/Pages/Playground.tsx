@@ -93,7 +93,7 @@ export default function Playground() {
   return (
     <Container>
       <Mailtitle>반려견놀이터</Mailtitle>
-      <ComplianceArtice>
+      <ComplianceArticle>
         <ArticleTitle>반려견 놀이터 이용시 준수사항</ArticleTitle>
         <ArticleNotice>
           아래 준수사항을 지키지 않을 경우 퇴장할 수 있습니다.
@@ -139,7 +139,7 @@ export default function Playground() {
           </ComplianceLi>
         </ComplianceUl>
         <img src={park} />
-      </ComplianceArtice>
+      </ComplianceArticle>
       <PlaygroundArticle>
         <ArticleTitle>반려견 놀이터 목록</ArticleTitle>
         {window.innerWidth < 765 && (
@@ -182,6 +182,7 @@ const Container = styled.section`
   align-items: center;
   padding: 100px;
   letter-spacing: -0.3px;
+  width: 100%;
 
   @media ${device.mobile} {
     padding: 130px 20px 50px;
@@ -199,13 +200,10 @@ const Mailtitle = styled.h2`
 `;
 
 const Article = styled.article`
-  width: 1100px;
+  width: 100%;
+  max-width: 1100px;
   padding: 16px;
   margin: 52px 0 80px;
-
-  @media ${device.mobile} {
-    width: 100%;
-  }
   }
 `;
 
@@ -220,7 +218,7 @@ const ArticleTitle = styled.h3`
   }
 `;
 
-const ComplianceArtice = styled(Article)`
+const ComplianceArticle = styled(Article)`
   position: relative;
   letter-spacing: -0.7px;
 
@@ -256,6 +254,7 @@ const ComplianceLi = styled.li`
 
 const PlaygroundArticle = styled(Article)`
   letter-spacing: -0.7px;
+  max-width: 1200px;
 
   @media ${device.mobile} {
     overflow: scroll;
@@ -303,7 +302,7 @@ const PlaygroundTable = styled.table`
   }
 
   @media ${device.mobile} {
-    width: 600px;
+    min-width: 600px;
     overflow-x: scroll;
 
     thead th:nth-child(2) {
