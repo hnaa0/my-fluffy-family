@@ -15,7 +15,9 @@ export default function AnimalCardInfo() {
   const photoData: PhotoType = useSelector(
     (state: RootState) => state.photoStore.photos
   );
-  const [viewWidth, setViewWidth] = useState(window.innerWidth);
+  const [heart, setHeart] = useState(
+    localStorage.getItem(`${id}`) ? true : false
+  );
 
   const youtubeUrl = (url: string) => {
     return url.replace("https://youtu.be/", "");
@@ -52,6 +54,17 @@ export default function AnimalCardInfo() {
 
   const data = getData();
   const photos = getPhoto();
+
+  const addHeart = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    if (!heart) {
+      setHeart(true);
+      localStorage.setItem(`${data[0].ANIMAL_NO}`, `${data[0].ANIMAL_NO}`);
+    } else {
+      setHeart(false);
+      localStorage.removeItem(`${data[0].ANIMAL_NO}`);
+    }
+  };
 
   return (
     <Container>
@@ -112,11 +125,39 @@ export default function AnimalCardInfo() {
                 </InfoTable>
               </InfoBox>
               <BtnBox>
+                <Heart onClick={addHeart}>
+                  {heart ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="28"
+                      height="28"
+                      fill="red"
+                      className="bi bi-heart-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="28"
+                      height="28"
+                      fill="currentColor"
+                      className="bi bi-heart"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                    </svg>
+                  )}
+                </Heart>
                 <Link to="/info/centerinfo">
-                  <button>방문예약</button>
+                  <Reservation>방문예약</Reservation>
                 </Link>
                 <Link to="/findfamily/adoptprocess">
-                  <button>입양절차안내</button>
+                  <Process>입양절차안내</Process>
                 </Link>
               </BtnBox>
             </TextGroup>
@@ -129,16 +170,6 @@ export default function AnimalCardInfo() {
                   <VideoNotice>
                     📢 설정 &gt; 화질 &gt; 1080p ~ 2160p로 설정 후 시청바랍니다.
                   </VideoNotice>
-                  {/* <iframe
-                    width="1100"
-                    height="620"
-                    src={`//www.youtube.com/embed/${youtubeUrl(
-                      data[0].INTRCN_MVP_URL
-                    )}`}
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe> */}
                   <YoutubeBox>
                     <YouTube
                       videoId={youtubeUrl(data[0].INTRCN_MVP_URL)}
@@ -299,12 +330,15 @@ const InfoTable = styled.table`
   }
 `;
 
+const Process = styled.button``;
+const Reservation = styled.button``;
+
 const BtnBox = styled.div`
   display: flex;
   justify-content: end;
   width: 100%;
 
-  button {
+  ${Process}, ${Reservation} {
     align-items: center;
     width: 120px;
     height: 40px;
@@ -320,6 +354,23 @@ const BtnBox = styled.div`
     &:hover {
       background-color: var(--color-yellow-light);
     }
+  }
+`;
+
+const Heart = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+
+  svg {
+    transition: all 0.2s;
+    margin-top: 4px;
+  }
+
+  &:hover svg {
+    transform: scale(1.1);
   }
 `;
 
