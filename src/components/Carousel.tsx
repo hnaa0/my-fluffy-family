@@ -3,7 +3,8 @@ import { AnimalsDataType } from "../App";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { device } from "../styles/theme";
 
 export type PropsType = {
   data: {
@@ -46,23 +47,35 @@ export default function Carousel({ data }: PropsType) {
   }
 
   const [slideMove, setSlideMove] = useState<number>(0);
-  const imgBoxLength = photos.length;
-  const carouselBoxWidth = 258 * imgBoxLength;
+  const [viewWidth, setViewWidth] = useState<number>(window.innerWidth);
+  const $containerRef = useRef<HTMLDivElement>(null);
+  const $carouselBoxRef = useRef<HTMLDivElement>(null);
+  const ContainerOffsetWidth = $containerRef.current?.offsetWidth;
 
   const handleButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     if (e.currentTarget.value === "next") {
-      slideMove > -carouselBoxWidth + 1032 &&
-        setSlideMove((prev) => prev - 1032);
-      return;
+      ContainerOffsetWidth &&
+        setSlideMove((prev) => prev - ContainerOffsetWidth);
     } else {
-      slideMove < 0 && setSlideMove((prev) => prev + 1032);
-      return;
+      ContainerOffsetWidth &&
+        setSlideMove((prev) => prev + ContainerOffsetWidth);
     }
   };
 
+  useEffect(() => {
+    const handleViewWidth = () => {
+      setSlideMove(0);
+      setViewWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleViewWidth);
+    return () => {
+      window.removeEventListener("resize", handleViewWidth);
+    };
+  }, []);
+
   return (
-    <CarouselContainer>
+    <CarouselContainer ref={$containerRef}>
       {slideMove !== 0 && (
         <PrevBtn value="prev" onClick={handleButton}>
           <svg
@@ -80,41 +93,44 @@ export default function Carousel({ data }: PropsType) {
           </svg>
         </PrevBtn>
       )}
-      {slideMove >= -carouselBoxWidth + 1032 && (
-        <NextBtn value="next" onClick={handleButton}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            fill="currentColor"
-            className="bi bi-arrow-right"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fillRule="evenodd"
-              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-            />
-          </svg>
-        </NextBtn>
-      )}
+      <NextBtn value="next" onClick={handleButton}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          fill="currentColor"
+          className="bi bi-arrow-right"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fillRule="evenodd"
+            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+          />
+        </svg>
+      </NextBtn>
       <CarouselGroup>
-        <CarouselBox>
+        <CarouselBox ref={$carouselBoxRef}>
           {data &&
             data.map((el: AnimalsDataType, idx) => {
               return (
-                <Link key={el.ANIMAL_NO} to={`/animals/${el.ANIMAL_NO}`}>
-                  <ImgBox
-                    $bgimg={`https://${photos[idx]}`}
-                    $slidemove={slideMove}
-                  >
-                    <TextBox>
-                      <span>{el.NM}</span>
-                      <span>
-                        {el.BREEDS} / {el.SEXDSTN === "M" ? "남" : "여"} /{" "}
-                        {el.AGE} / {el.BDWGH}kg
-                      </span>
-                    </TextBox>
-                  </ImgBox>
+                <Link
+                  key={el.ANIMAL_NO}
+                  to={`/findfamily/animals/${el.ANIMAL_NO}`}
+                >
+                  <ImgBoxWrapper>
+                    <ImgBox
+                      $bgimg={`https://${photos[idx]}`}
+                      $slidemove={slideMove}
+                    >
+                      <TextBox>
+                        <span>{el.NM}</span>
+                        <span>
+                          {el.BREEDS} / {el.SEXDSTN === "M" ? "남" : "여"} /{" "}
+                          {el.AGE} / {el.BDWGH}kg
+                        </span>
+                      </TextBox>
+                    </ImgBox>
+                  </ImgBoxWrapper>
                 </Link>
               );
             })}
@@ -127,8 +143,11 @@ export default function Carousel({ data }: PropsType) {
 const CarouselContainer = styled.div`
   position: relative;
   height: 300px;
-  width: 1032px;
-  margin: 0 60px;
+  width: 100%;
+
+  @media ${device.mobile} {
+    height: 300px;
+  }
 `;
 
 const CarouselGroup = styled.div`
@@ -139,6 +158,10 @@ const CarouselGroup = styled.div`
 
 const CarouselBox = styled.div`
   display: flex;
+`;
+
+const ImgBoxWrapper = styled.div`
+  width: 100%;
 `;
 
 const ImgBox = styled.div<{ $bgimg: string; $slidemove: number }>`
@@ -159,6 +182,12 @@ const ImgBox = styled.div<{ $bgimg: string; $slidemove: number }>`
 
   &:hover {
     filter: brightness(0.9);
+  }
+
+  @media ${device.mobile} {
+    height: 300px;
+    width: 320px;
+    transition: transform 0.5s ease-in-out;
   }
 `;
 
@@ -202,11 +231,24 @@ const Btn = styled.button`
     background-color: var(--color-yellow-light);
     color: var(--color-white);
   }
+
+  @media ${device.mobile} {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 const PrevBtn = styled(Btn)`
   left: -20px;
+
+  @media ${device.mobile} {
+    left: -10px;
+  }
 `;
 const NextBtn = styled(Btn)`
   right: -20px;
+
+  @media ${device.mobile} {
+    right: -10px;
+  }
 `;
