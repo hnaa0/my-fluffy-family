@@ -1,30 +1,49 @@
-# React + TypeScript + Vite
+# My Fluffy Family
+⚙ `react`, `vite`, `typescript`, `react-redux`, `styled-component`, `styled-reset`
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+서울시 공공데이터를 이용해 만든 반려동물 입양 홍보사이트입니다.  
+웹, 모바일 버전을 제공하는 반응형 웹입니다.
 
-Currently, two official plugins are available:
+[➡preview](https://my-fluffy-family.vercel.app/)  
+_**현재 mixed content 에러로 데이터를 받아오지 못하고 있습니다._  
+_데이터와 관련된 상세 ui는 아래 readme를 통해 봐주시면 감사하겠습니다._
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+</br>
+</br>
+</br>
 
-## Expanding the ESLint configuration
+## Detail
+**INFO, FINDFAMILY, PLAYGROUND**
+크게 세 가지 카테고리로 분류되어 있습니다.
+### Header
+![image](https://github.com/hnaa0/my-fluffy-family/assets/76546543/85c7282e-2fa6-4770-9e7d-1aec7d81d2f7)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+</br>
 
-- Configure the top-level `parserOptions` property like this:
+### Home
+![image](https://github.com/hnaa0/my-fluffy-family/assets/76546543/0ae2c428-3895-4a56-8cfe-cc941f97ddd2)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+</br>
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### INFO
+![image](https://github.com/hnaa0/my-fluffy-family/assets/76546543/5603d2a1-7e27-47c3-ab26-56e824dbdab5)
+
+#### 아코디언메뉴
+![image](https://github.com/hnaa0/my-fluffy-family/assets/76546543/9ffdc506-3cd5-48b3-a737-3ba16c1468a1)
+
+</br>
+
+### FINDFAMILY
+![image](https://github.com/hnaa0/my-fluffy-family/assets/76546543/e0b77917-9880-413a-aebf-13dc89bb2922)
+
+#### 입양동물소개
+![image](https://github.com/hnaa0/my-fluffy-family/assets/76546543/864505fc-5662-4a9d-a127-59d06030c729)
+![image](https://github.com/hnaa0/my-fluffy-family/assets/76546543/6a0c7638-5c82-4afc-9b76-92f11fff1571)
+
+</br>
+
+### PLAYGROUND
+![image](https://github.com/hnaa0/my-fluffy-family/assets/76546543/9bfc638f-35e4-4954-844d-b417651274f5)
+
+
+
