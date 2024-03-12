@@ -47,7 +47,6 @@ export default function Carousel({ data }: PropsType) {
   }
 
   const [slideMove, setSlideMove] = useState<number>(0);
-  const [viewWidth, setViewWidth] = useState<number>(window.innerWidth);
   const $containerRef = useRef<HTMLDivElement>(null);
   const $carouselBoxRef = useRef<HTMLDivElement>(null);
   const ContainerOffsetWidth = $containerRef.current?.offsetWidth;
@@ -66,8 +65,8 @@ export default function Carousel({ data }: PropsType) {
   useEffect(() => {
     const handleViewWidth = () => {
       setSlideMove(0);
-      setViewWidth(window.innerWidth);
     };
+
     window.addEventListener("resize", handleViewWidth);
     return () => {
       window.removeEventListener("resize", handleViewWidth);
