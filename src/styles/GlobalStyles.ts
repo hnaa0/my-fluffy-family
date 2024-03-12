@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
+import { device } from "./theme";
 
 const GlobalStyles = createGlobalStyle`
 ${reset}
@@ -39,6 +40,12 @@ body {
     font-family: Gmarket, snas-serif, Arial;
     color: var(--color-gray-dark);
     overflow: hidden;
+    padding-top: 80px;
+
+    @media ${device.mobile} {
+        padding-top: 60px;
+    }
+}
 
 input, textarea { 
     -moz-user-select: auto;

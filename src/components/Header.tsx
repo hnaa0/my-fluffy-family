@@ -27,118 +27,127 @@ export default function Header() {
   };
 
   return (
-    <Nav>
-      <Link to="/">
-        <Logo src={mff} alt="my fluffy family logo" />
-      </Link>
-      <HamburgerMenu>
-        <MenuButton onClick={handleSideMenu}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            fill="currentColor"
-            className="bi bi-list"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fillRule="evenodd"
-              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-            />
-          </svg>
-        </MenuButton>
-        <HamburgerUl ref={$hamburgerRef}>
-          <CloseButton onClick={handleSideMenu}>
+    <Container>
+      <Nav>
+        <Link to="/">
+          <Logo src={mff} alt="my fluffy family logo" />
+        </Link>
+        <HamburgerMenu>
+          <MenuButton onClick={handleSideMenu}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="32"
               height="32"
               fill="currentColor"
-              className="bi bi-x-lg"
+              className="bi bi-list"
               viewBox="0 0 16 16"
             >
-              <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+              <path
+                fillRule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+              />
             </svg>
-          </CloseButton>
-          <div>
-            <HamburgerLi>
-              <div
-                onClick={(e) => {
-                  handleCategory(e);
-                  handleSideMenu();
-                }}
+          </MenuButton>
+          <HamburgerUl ref={$hamburgerRef}>
+            <CloseButton onClick={handleSideMenu}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="currentColor"
+                className="bi bi-x-lg"
+                viewBox="0 0 16 16"
               >
-                INFO
-              </div>
-              <ul>
-                <Link onClick={handleSideMenu} to="/info/centerinfo">
-                  <li>센터소개</li>
-                </Link>
-                <Link onClick={handleSideMenu} to="/info/faq">
-                  <li>FAQ</li>
-                </Link>
-              </ul>
-            </HamburgerLi>
-            <HamburgerLi>
-              <div
-                onClick={(e) => {
-                  handleCategory(e);
-                  handleSideMenu();
-                }}
-              >
-                FINDFAMILY
-              </div>
-              <ul>
-                <Link onClick={handleSideMenu} to="/findfamily/animals">
-                  <li>입양동물소개</li>
-                </Link>
-                <Link onClick={handleSideMenu} to="/findfamily/adoptprocess">
-                  <li>입양절차</li>
-                </Link>
-                <Link onClick={handleSideMenu} to="/findfamily/fosterprogram">
-                  <li>임시보호프로그램</li>
-                </Link>
-              </ul>
-            </HamburgerLi>
-            <Link onClick={handleSideMenu} to="/playground">
-              <HamburgerLi>PLAYGROUND</HamburgerLi>
-            </Link>
-          </div>
-        </HamburgerUl>
-      </HamburgerMenu>
-      <MainCategory>
-        <MainCategoryLi>
-          <div onClick={handleCategory}>INFO</div>
-          <SubCategory>
-            <Link to="/info/centerinfo">
-              <SubCategoryLi>센터소개</SubCategoryLi>
-            </Link>
-            <Link to="/info/faq">
-              <SubCategoryLi>FAQ</SubCategoryLi>
-            </Link>
-          </SubCategory>
-        </MainCategoryLi>
-        <MainCategoryLi>
-          <div onClick={handleCategory}>FINDFAMILY</div>
-          <SubCategory>
-            <Link to="/findfamily/animals">
-              <SubCategoryLi>입양동물소개</SubCategoryLi>
-            </Link>
-            <Link to="/findfamily/adoptprocess">
-              <SubCategoryLi>입양절차</SubCategoryLi>
-            </Link>
-            <Link to="/findfamily/fosterprogram">
-              <SubCategoryLi>임시보호프로그램</SubCategoryLi>
-            </Link>
-          </SubCategory>
-        </MainCategoryLi>
-        <Link to="/playground">
-          <MainCategoryLi>PLAYGROUND</MainCategoryLi>
-        </Link>
-      </MainCategory>
-    </Nav>
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+              </svg>
+            </CloseButton>
+            <div>
+              <HamburgerLi>
+                <div
+                  onClick={(e) => {
+                    handleCategory(e);
+                    handleSideMenu();
+                  }}
+                >
+                  INFO
+                </div>
+                <ul>
+                  <Link onClick={handleSideMenu} to="/info/centerinfo">
+                    <li>센터소개</li>
+                  </Link>
+                  <Link onClick={handleSideMenu} to="/info/faq">
+                    <li>FAQ</li>
+                  </Link>
+                </ul>
+              </HamburgerLi>
+              <HamburgerLi>
+                <div
+                  onClick={(e) => {
+                    handleCategory(e);
+                    handleSideMenu();
+                  }}
+                >
+                  FINDFAMILY
+                </div>
+                <ul>
+                  <Link onClick={handleSideMenu} to="/findfamily/animals">
+                    <li>입양동물소개</li>
+                  </Link>
+                  <Link onClick={handleSideMenu} to="/findfamily/adoptprocess">
+                    <li>입양절차</li>
+                  </Link>
+                  <Link onClick={handleSideMenu} to="/findfamily/fosterprogram">
+                    <li>임시보호프로그램</li>
+                  </Link>
+                </ul>
+              </HamburgerLi>
+              <Link onClick={handleSideMenu} to="/playground">
+                <HamburgerLi>PLAYGROUND</HamburgerLi>
+              </Link>
+            </div>
+          </HamburgerUl>
+        </HamburgerMenu>
+        <MainCategory>
+          <MainCategoryLi>
+            <div onClick={handleCategory}>INFO</div>
+            <SubCategory>
+              <Link to="/info/centerinfo">
+                <SubCategoryLi>센터소개</SubCategoryLi>
+              </Link>
+              <Link to="/info/faq">
+                <SubCategoryLi>FAQ</SubCategoryLi>
+              </Link>
+            </SubCategory>
+          </MainCategoryLi>
+          <MainCategoryLi>
+            <div onClick={handleCategory}>FINDFAMILY</div>
+            <SubCategory>
+              <Link to="/findfamily/animals">
+                <SubCategoryLi>입양동물소개</SubCategoryLi>
+              </Link>
+              <Link to="/findfamily/adoptprocess">
+                <SubCategoryLi>입양절차</SubCategoryLi>
+              </Link>
+              <Link to="/findfamily/fosterprogram">
+                <SubCategoryLi>임시보호프로그램</SubCategoryLi>
+              </Link>
+            </SubCategory>
+          </MainCategoryLi>
+          <Link to="/playground">
+            <MainCategoryLi>PLAYGROUND</MainCategoryLi>
+          </Link>
+        </MainCategory>
+      </Nav>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+`;
 
 const Nav = styled.nav`
   position: relative;
