@@ -43,7 +43,7 @@ export default function App() {
     const dog: AnimalsDataType[] = [];
 
     const getAnimals = async () => {
-      const URL = `http://openapi.seoul.go.kr:8088/${API_KEY}/json/TbAdpWaitAnimalView/1/100`;
+      const URL = `/api/${API_KEY}/json/TbAdpWaitAnimalView/1/100`;
       const res = await remote.get(URL);
       const animalsArr: AnimalsDataType[] = res.data.TbAdpWaitAnimalView.row;
 
